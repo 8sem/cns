@@ -13,10 +13,9 @@ sudo snort -r snort.log.<filenumber>
 
 3. Detect Threats
 
-sudo gedit /etc/snort/rules/local.rules
-alert tcp any any -> any 22 (msg:"Possible SSH brute force"; flags:S; sid:1000002; rev:1;)
-sudo snort -A console -q -c /etc/snort/snort.conf -i <yourinterface>
-sudo nmap -sS -p 22 <my_ip>
+sudo gedit /etc/snort/rules/local.rules --- remove the existing rules
+sudo snort -A console -q -u snort -g snort -c /etc/snort/snort.conf -i <yourinterface>
+sudo nmap -O ip
 cd /var/log/snort
 sudo snort -r snort.log.<filenumber>
 
