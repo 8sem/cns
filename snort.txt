@@ -14,6 +14,7 @@ sudo snort -r snort.log.<filenumber>
 3. Detect Threats
 
 sudo gedit /etc/snort/rules/local.rules --- remove the existing rules
+sudo snort -T -c /etc/snort/snort.conf -i <yourinterface>
 sudo snort -A console -q -u snort -g snort -c /etc/snort/snort.conf -i <yourinterface>
 sudo nmap -O ip
 cd /var/log/snort
